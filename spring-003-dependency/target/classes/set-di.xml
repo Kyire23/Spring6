@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	">
+
+<!--    测试简单类型-->
+    <bean id="svt" class="com.oumuanode.spring6.bean.SimpleValueType">
+        <property name="age" value="20"/>
+        <property name="age2" value="20"/>
+        <property name="username" value="zhangsan"/>
+        <property name="season" value="SPRING"/>
+        <property name="flag" value="false"/>
+        <property name="flag2" value="true"/>
+        <property name="c" value="男"/>
+        <property name="c2" value="女"/>
+        <property name="clazz" value="java.lang.String"/>
+
+    </bean>
+    <!--外部bean-->
+    <bean id="orderDaoBean" class="com.oumuanode.spring6.dao.OrderDao"/>
+    <bean id="orderServiceBean" class="com.oumuanode.spring6.service.OrderService">
+        <property name="orderDao" ref="orderDaoBean"/>
+    </bean>
+    <!--外部bean-->
+    <bean id="orderServiceBean2" class="com.oumuanode.spring6.service.OrderService">
+        <property name="orderDao">
+            <bean class="com.oumuanode.spring6.dao.OrderDao"></bean>
+        </property>
+    </bean>
+
+<!--    简单类型注入-->
+    <bean id="userBean" class="com.oumuanode.spring6.bean.User">
+        <property name="username" value="张三"/>
+        <property name="password" value="123"/>
+        <property name="age" value="18"/>
+    </bean>
+
+
+    <bean id="personBean" class="com.oumuanode.spring6.bean.Person">
+
+    <property name="properties">
+        <props>
+            <prop key="driver">com.mysql.cj.jdbc.Driver</prop>
+            <prop key="url">jdbc:mysql://localhost:3306/spring6</prop>
+            <prop key="username">root</prop>
+            <prop key="password">123456</prop>
+        </props>
+    </property>
+
+
+
+        <property name="names">
+            <list>
+                <value>张三</value>
+                <value>张三</value>
+                <value>第三方</value>
+                <value>时间段</value>
+                <value>李四</value>
+                <value>张三</value>
+            </list>
+        </property>
+
+        <property name="addrs">
+            <set>
+                <value>北京大学</value>
+                <value>河南大学</value>
+                <value>南京大学</value>
+                <value>安徽大学</value>
+                <value>上海大学</value>
+                <value>厦门大学</value>
+                <value>哈尔滨大学</value>
+            </set>
+        </property>
+
+
+    </bean>
+
+
+
+</beans>
+

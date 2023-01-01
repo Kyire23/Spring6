@@ -6,8 +6,20 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="spring-003-dependency" />
+        <module name="spring-007-jdbc" />
+        <module name="spring-002-first" />
+        <module name="spring-008-aopaspectj" />
+        <module name="spring-009-txbank" />
+        <module name="spring-005-circular" />
         <module name="spring-001-revelation" />
+        <module name="spring-004-scope" />
+        <module name="spring-006-annotation" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="spring6-003-dependency" target="19" />
+      <module name="spring6-007-jdbc" target="19" />
+    </bytecodeTargetLevel>
   </component>
 </project>

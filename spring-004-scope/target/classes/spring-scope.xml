@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	">
+
+    <bean id="sb" class="com.oumuanode.spring6.bean.SpringBean" scope="prototype"/>
+
+
+<!--    spring提供的第二种实例方式 通过简单工厂模式 -->
+    <bean id="startBean" class="com.oumuanode.spring6.bean.StarFactory" factory-method="get">
+
+    </bean>
+
+<!--    spring提供的第三种实例方式 通过工厂方法模式-->
+    <bean id="gunFactory" class="com.oumuanode.spring6.factory.GunFactory"/>
+    <bean id="gun" factory-bean="gunFactory" factory-method="get"/>
+
+<!--    <bean id="nowTime" class="java.util.Date"/>-->
+    <bean id="date" class="com.oumuanode.spring6.bean.DateFactoryBean">
+        <constructor-arg index="0" value="1980-10-12"/>
+    </bean>
+    <bean id="student" class="com.oumuanode.spring6.bean.Student">
+        <property name="brith" ref="date"/>
+    </bean>
+
+</beans>
+

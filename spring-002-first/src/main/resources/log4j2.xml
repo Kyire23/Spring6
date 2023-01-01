@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+
+    <loggers>
+        <root level="DEBUG">
+            <AppenderRef ref="spring6log"/>
+        </root>
+    </loggers>
+
+    <appenders>
+        <console name="spring6log" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+        </console>
+    </appenders>
+
+</Configuration>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	">
+    <!--    <bean id="orderService" class="com.oumuanode.spring6.service.OrderService">-->
+    <!--        <property name="orderDao" ref="abc"/>-->
+    <!--    </bean>-->
+    <!--    <bean id="abc" class="com.oumuanode.spring6.dao.OrderDao"/>-->
+
+
+    <!--    根据类型自动装配-->
+    <bean class="com.oumuanode.spring6.dao.VipDao"></bean>
+    <bean class="com.oumuanode.spring6.dao.UserDao"></bean>
+    <bean id="cs" class="com.oumuanode.spring6.service.CustomerService" autowire="byType"></bean>
+
+    <!--    根名字进行自动装配-->
+    <bean id="orderService" class="com.oumuanode.spring6.service.OrderService" autowire="byName">
+
+    </bean>
+    <bean id="orderDao" class="com.oumuanode.spring6.dao.OrderDao"/>
+</beans>
+
